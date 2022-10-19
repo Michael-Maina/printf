@@ -23,5 +23,5 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	len_spec = sizeof(spec) / sizeof(spec[0]);
+	len_spec = sizeof(specifier) / sizeof(specifier[0]);
 }
