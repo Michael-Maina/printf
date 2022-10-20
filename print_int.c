@@ -9,9 +9,8 @@
 
 int print_int(va_list args)
 {
-	int a;
-	int i, j, k;
-	k = 1;
+	int a, i, j;
+	int k = 1;
 	int count = 1;
 
 	a = va_arg(args, int);
@@ -19,11 +18,11 @@ int print_int(va_list args)
 	if (a < 0)
 	{
 		_putchar('-');
-		i = n * -1;
+		i = a * -1;
 		k++;
 	}
 	else
-		i = n;
+		i = a;
 
 	j = i;
 
@@ -36,6 +35,7 @@ int print_int(va_list args)
 	while (count >= 1)
 	{
 		_putchar(((i / count)% 10) + '0');
+		count /= 10;
 		k++;
 	}
 	return (k);
