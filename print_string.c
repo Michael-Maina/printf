@@ -20,14 +20,12 @@ int print_string(va_list args)
 		return (6);
 	}
 
-	while (*str != '\0')
-	{
-		len++;
-	}
+	for (; *(str + len) != '\0'; len++)
+		;
 
 	for (i = 0; i < len; i++)
 	{
-		(_putchar(*(str + i)));
+		_putchar(*(str + i));
 	}
 
 	return (len);
