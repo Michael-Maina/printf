@@ -20,6 +20,8 @@ int _printf(const char *format, ...)
 		{"b", print_dec_binary},
 		{"u", print_unsigned_int},
 		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
 		{'\0', NULL}
 	};
 	int i = 0, j = 0;
