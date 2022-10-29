@@ -10,8 +10,8 @@
 int print_dec_binary(va_list args)
 {
 	unsigned int a;
-	unsigned int i = 0;
-	unsigned int array[32];
+	int i = 0;
+	unsigned long int array[32];
 	unsigned int count = 0;
 
 	a = va_arg(args, unsigned int);
@@ -31,11 +31,11 @@ int print_dec_binary(va_list args)
 
 	i -= 1;
 
-	while (array[i])
+	while (i >= 0)
 	{
 		_putchar(array[i] + '0');
-		i--;
 		count++;
+		i--;
 	}
 
 	return (count);

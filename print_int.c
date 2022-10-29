@@ -9,33 +9,33 @@
 
 int print_int(va_list args)
 {
-	int a[10];
-	int j, m, n, sum, count;
+	int i = 0;
+	int j = 0;
+	int count = 1;
+	int size = 0;
+	int n = va_arg(args, int);
 
-	n = va_arg(args, int);
-	count = 0;
-	m = 1000000000;
-	a[0] = n / m;
-	for (j = 1; j < 10; j++)
-	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
 	if (n < 0)
 	{
 		_putchar('-');
-		count++;
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
+		i = n * -1;
+		size++;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
+	else
+		i = n;
+
+	j = i;
+
+	while (j > 9)
 	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			count++;
-		}
+		j /= 10;
+		count *= 10;
 	}
-	return (count);
+
+	for (; count >= 1; count /= 10)
+	{
+		_putchar(((i / count) % 10) + 48);
+		size++;
+	}
+	return (size);
 }
