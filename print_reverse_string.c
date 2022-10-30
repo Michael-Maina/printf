@@ -1,16 +1,17 @@
 #include "main.h"
 
 /**
- * print_string - prints a string
+ * print_rev_string - prints a string in reverse
  * @args: list of arguments pointing to string
  *
  * Return: length of string
  */
 
-int print_string(va_list args)
+int print_rev_string(va_list args)
 {
 	char *str;
-	int len = 0, i;
+	int len = 0;
+	int count = 0;
 
 	str = va_arg(args, char *);
 
@@ -20,10 +21,11 @@ int print_string(va_list args)
 	for (; *(str + len) != '\0'; len++)
 		;
 
-	for (i = 0; i < len; i++)
+	for (; len >= 0; --len)
 	{
-		_putchar(*(str + i));
+		_putchar(*(str + len));
+		count++;
 	}
 
-	return (len);
+	return (count);
 }

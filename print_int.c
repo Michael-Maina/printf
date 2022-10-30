@@ -37,5 +37,6 @@ int print_int(va_list args)
 		_putchar(((i / count) % 10) + 48);
 		size++;
 	}
+
 	return (size);
 }

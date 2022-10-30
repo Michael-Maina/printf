@@ -17,6 +17,8 @@ int _printf(const char *format, ...)
 		{"i", print_int},
 		{"d", print_int},
 		{"s", print_string},
+		{"r", print_rev_string},
+		{"R", print_rot13_string},
 		{"b", print_dec_binary},
 		{"u", print_unsigned_int},
 		{"o", print_octal},
@@ -59,6 +61,9 @@ int _printf(const char *format, ...)
 			else if (j < len_spec)
 			{
 				size += specifier[j].print(args);
+
+				if (size == -1)
+					return (-1);
 				i += 1;
 			}
 			else
